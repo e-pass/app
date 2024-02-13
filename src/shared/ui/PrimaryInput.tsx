@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { palette } from "../const/palette";
 import { type ReactElement } from "react";
+import { type TextInputProps } from "react-native";
 
 const Input = styled.TextInput`
     width: 100%;
@@ -11,6 +12,8 @@ const Input = styled.TextInput`
     border-color: ${palette.gray};
 `;
 
-export const PrimaryInput = (): ReactElement => {
-  return <Input placeholder="useless placeholder"  />;
+interface InputProps extends TextInputProps {}
+
+export const PrimaryInput = ({ ...props }: InputProps): ReactElement => {
+    return <Input {...props} />;
 };

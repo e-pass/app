@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { type ReactElement } from "react";
 import { palette } from "../const/palette";
+import { type PressableProps } from "react-native";
 
 const Button = styled.Pressable`
     width: 100%;
@@ -20,13 +21,14 @@ const Text = styled.Text`
     user-select: none;
 `;
 
-interface IProps {
-  title: string,
-  onPress: () => void,
+interface ButtonProps extends PressableProps {
+    label: string;
 }
 
-export const PrimaryButton = ({ title, onPress } : IProps): ReactElement => {
-  return <Button onPress={onPress}>
-    <Text>{title}</Text>
-  </Button>;
+export const PrimaryButton = ({ label, ...props }: ButtonProps): ReactElement => {
+    return (
+        <Button {...props}>
+            <Text>{label}</Text>
+        </Button>
+    );
 };
