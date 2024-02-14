@@ -9,9 +9,9 @@ import { PrimaryTitle } from "./src/shared/ui/PrimaryTitle";
 const App = (): ReactElement => {
     return (
         <Container>
-            <PrimaryTitle>Title</PrimaryTitle>
-            <PrimaryInput placeholder={"sss"} />
-            <PrimaryButton label="Привет мир" />
+            <PrimaryTitle>Hello world!</PrimaryTitle>
+            <PrimaryInput isError placeholder={"Hello world!"} />
+            <PrimaryButton label="Hello world!" />
             <StatusBar />
         </Container>
     );

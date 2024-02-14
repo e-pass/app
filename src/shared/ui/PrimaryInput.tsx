@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { palette } from "../const/palette";
 import { type ReactElement } from "react";
-import { type TextInputProps } from "react-native";
+import { StyleSheet, type TextInputProps } from "react-native";
 
 const Input = styled.TextInput`
     width: 100%;
@@ -12,8 +12,41 @@ const Input = styled.TextInput`
     border-color: ${palette.gray};
 `;
 
-interface InputProps extends TextInputProps {}
+const Body = styled.View`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+`;
 
-export const PrimaryInput = ({ ...props }: InputProps): ReactElement => {
-    return <Input {...props} />;
+const Attention = styled.Image`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 20px;
+`;
+
+interface InputProps extends TextInputProps {
+    isError?: boolean;
+}
+
+/** Primary Input | Accepts isError (true/false), and other props valid to TextInput  */
+export const PrimaryInput = ({ isError = false, ...props }: InputProps): ReactElement => {
+    return (
+        <Body>
+            <Input style={isError && styles.error} {...props} />
+            <Attention
+                source={{
+                    uri: "./attention.svg",
+                }}
+            />
+        </Body>
+    );
 };
+
+const styles = StyleSheet.create({
+    error: {
+        borderColor: `${palette.red}`,
+        color: `${palette.red}`,
+    },
+});

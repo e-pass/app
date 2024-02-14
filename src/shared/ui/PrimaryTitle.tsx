@@ -13,6 +13,7 @@ interface TitleProps extends TextProps {
     children: ReactNode;
 }
 
+/** Primary Title | Accepts children (ReactNode), and other props valid to Text  */
 export const PrimaryTitle = ({ children, ...props }: TitleProps): ReactElement => {
     return <Title {...props}>{children}</Title>;
 };

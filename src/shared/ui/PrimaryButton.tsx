@@ -25,6 +25,7 @@ interface ButtonProps extends PressableProps {
     label: string;
 }
 
+/** Primary Button | Accepts label (string), and other props valid to Pressable  */
 export const PrimaryButton = ({ label, ...props }: ButtonProps): ReactElement => {
     return (
         <Button {...props}>
