@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { palette } from "../const/palette";
+import { colors } from "../const/colors";
 import { type ReactElement } from "react";
 import { StyleSheet, type TextInputProps } from "react-native";
 
@@ -9,7 +9,7 @@ const Input = styled.TextInput`
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
-    border-color: ${palette.gray};
+    border-color: ${colors.gray};
 `;
 
 const Body = styled.View`
@@ -37,7 +37,7 @@ export const PrimaryInput = ({ isError = false, ...props }: InputProps): ReactEl
             <Input style={isError && styles.error} {...props} />
             <Attention
                 source={{
-                    uri: "./attention.svg",
+                    uri: "./attention.png",
                 }}
             />
         </Body>
@@ -46,7 +46,7 @@ export const PrimaryInput = ({ isError = false, ...props }: InputProps): ReactEl
 
 const styles = StyleSheet.create({
     error: {
-        borderColor: `${palette.red}`,
-        color: `${palette.red}`,
+        borderColor: `${colors.red}`,
+        color: `${colors.red}`,
     },
 });

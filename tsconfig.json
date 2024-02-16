@@ -5,7 +5,10 @@
     "target": "ESNext",
     "baseUrl": ".",
     "paths": {
-      "@/": ["./*"]
+      "@/": ["./*"],
+      "@/assets/*": [
+        "assets/*"
+      ]
     }
   }
 }

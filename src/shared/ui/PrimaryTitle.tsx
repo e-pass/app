@@ -6,7 +6,6 @@ const Title = styled.Text`
     font-size: 34px;
     font-weight: 700;
     line-height: 36px;
-    letter-spacing: -1%;
 `;
 
 interface TitleProps extends TextProps {

@@ -1,19 +1,16 @@
 import { StatusBar } from "react-native";
 import { type ReactElement } from "react";
 
-import { Container } from "./src/shared/ui/Container";
-import { PrimaryInput } from "./src/shared/ui/PrimaryInput";
-import { PrimaryButton } from "./src/shared/ui/PrimaryButton";
+import { StyledContainer } from "./src/shared/ui/Container";
 import { PrimaryTitle } from "./src/shared/ui/PrimaryTitle";
+import { PrimaryButton } from "./src/shared/ui/PrimaryButton";
 
 const App = (): ReactElement => {
     return (
-        <Container>
-            <PrimaryTitle>Hello world!</PrimaryTitle>
-            <PrimaryInput isError placeholder={"Hello world!"} />
-            <PrimaryButton label="Hello world!" />
-            <StatusBar />
-        </Container>
+        <StyledContainer style={{ paddingTop: 50 }}>
+            <PrimaryTitle>Title</PrimaryTitle>
+            <PrimaryButton label={"Btn"} />
+        </StyledContainer>
     );
 };
 
