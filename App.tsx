@@ -1,9 +1,5 @@
-import { StatusBar } from "react-native";
 import { type ReactElement } from "react";
-
-import { StyledContainer } from "./src/shared/ui/Container";
-import { PrimaryTitle } from "./src/shared/ui/PrimaryTitle";
-import { PrimaryButton } from "./src/shared/ui/PrimaryButton";
+import { StyledContainer, PrimaryTitle, PrimaryButton } from "./src/shared/ui";
 
 const App = (): ReactElement => {
     return (
