@@ -33,6 +33,8 @@
           "./assets/fonts/Inter.ttf",
           "./assets/fonts/Navigo-Medium.ttf",
           "./assets/fonts/NunitoSans.ttf",
+          "./assets/fonts/NunitoSans-Bold.ttf",
+          "./assets/fonts/NunitoSans-Semibold.ttf",
           "./assets/fonts/Roboto-Medium.ttf",
           "./assets/fonts/SF-Pro-Display-Bold.otf",
           "./assets/fonts/SF-Pro-Display-Regular.otf",
