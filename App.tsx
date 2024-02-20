@@ -1,13 +1,27 @@
 import { type ReactElement } from "react";
 import { StyledContainer, PrimaryTitle, PrimaryButton } from "./src/shared/ui";
+import Login from "./src/screens/Login";
+import { useFonts } from "expo-font";
 
 const App = (): ReactElement => {
-    return (
-        <StyledContainer style={{ paddingTop: 50 }}>
-            <PrimaryTitle>Title</PrimaryTitle>
-            <PrimaryButton label={"Btn"} />
-        </StyledContainer>
-    );
+    const [fontsLoaded] = useFonts({
+        Inter: "@/assets/fonts/Inter.ttf",
+        "Inter-Semibold": "@/assets/fonts/Inter-Semibold.otf",
+        "Navigo-Medium": "@/assets/fonts/Navigo-Medium.ttf",
+        NunitoSans: "@/assets/fonts/NunitoSans.ttf",
+        "NunitoSans-Bold": "@/assets/fonts/NunitoSans-Bold.ttf",
+        "NunitoSans-Regular": "@/assets/fonts/NunitoSans-Regular.ttf",
+        "NunitoSans-Semibold": "@/assets/fonts/NunitoSans-Semibold.ttf",
+        "Roboto-Medium": "@/assets/fonts/Roboto-Medium.ttf",
+        "SF-Pro-Display-Bold": "@/assets/fonts/SF-Pro-Display-Bold.otf",
+        "SF-Pro-Display-Regular": "@/assets/fonts/SF-Pro-Display-Regular.otf",
+        "SF-Pro-Display-Semibold": "@/assets/fonts/SF-Pro-Display-Semibold.otf",
+        "SFProText-Bold": "@/assets/fonts/SFProText-Bold.ttf",
+        "SFProText-Medium": "@/assets/fonts/SFProText-Medium.ttf",
+        "SFProText-Regular": "@/assets/fonts/SFProText-Regular.ttf",
+        "SFProText-Semibold": "@/assets/fonts/SFProText-Semibold.ttf",
+    });
+    return <Login />;
 };
 
 export default App;

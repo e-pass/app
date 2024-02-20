@@ -3,15 +3,11 @@ import styled from "styled-components/native";
 import { SafeAreaView } from "react-native";
 import { colors } from "../const/colors";
 
-// export const Container = ({ children }: { children: ReactNode }): ReactElement => {
-//     return (
-//         <SafeAreaView>
-//             <Screen>{children}</Screen>
-//         </SafeAreaView>
-//     );
-// };
+export const Container = ({ children }: { children: ReactNode }): ReactElement => {
+    return <StyledContainer>{children}</StyledContainer>;
+};
 
-export const StyledContainer = styled.View`
+const StyledContainer = styled.SafeAreaView`
     flex: 1;
     background-color: ${colors.primary};
     padding-horizontal: 16px;
@@ -21,5 +17,4 @@ export const StyledContainer = styled.View`
 export const InnerContainer = styled.View`
     flex: 1;
     width: 100%;
-    align-items: center;
 `;
