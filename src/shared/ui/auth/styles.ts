@@ -11,20 +11,20 @@ export const ExtraView = styled.View`
     flex-direction: row;
     column-gap: 8px;
     margin-bottom: 42px;
+    align-items: center;
 `;
 
 export const ExtraText = styled.Text`
-    padding-top: 1px;
     font-size: 15px;
     font-family: NunitoSans-Regular;
 `;
 
 export const TextLink = styled.TouchableOpacity`
-    border-bottom: 1px solid ${colors.blue};
+    //border-bottom: 1px solid ${colors.violet};
 `;
 
 export const TextLinkContent = styled.Text`
-    color: ${colors.blue};
+    color: ${colors.violet};
     font-size: 15px;
     text-decoration: underline;
 `;
