@@ -10,6 +10,7 @@
       }
     </style>
   </defs>
-  <polyline class="cls-1" points="10.84 8.06 6.47 12.01 10.84 15.97"/>
-  <line class="cls-1" x1="6.47" y1="12" x2="19.6" y2="12"/>
+  <circle class="cls-1" cx="12" cy="6.85" r=".87" transform="translate(.07 13.82) rotate(-60)"/>
+  <circle class="cls-1" cx="12" cy="12.09" r=".87" transform="translate(-4.47 16.44) rotate(-60)"/>
+  <circle class="cls-1" cx="12" cy="17.34" r=".87" transform="translate(-9.02 19.06) rotate(-60)"/>
 </svg>

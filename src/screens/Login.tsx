@@ -1,6 +1,6 @@
 import { Container, InnerContainer } from "../shared/ui/Container";
 import { StatusBar, Text, TouchableOpacity } from "react-native";
-import Header from "../shared/ui/auth/Header";
+import Header from "../shared/ui/Header";
 import {
     ExtraText,
     ExtraView,
@@ -16,7 +16,9 @@ const Login = () => {
     return (
         <Container>
             <StatusBar barStyle={"light-content"} />
-            <Header />
+            <Header headerLayout={{ leftIcon: true, rightIcon: true }} rightIcon="close">
+                <Text>some text</Text>
+            </Header>
             <InnerContainer>
                 <StyledTitle style={{ letterSpacing: -0.34, lineHeight: 36 }}>
                     Вход в систему
