@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { colors } from "../../const/colors";
+import { colors } from "@/shared/const";
 
 export const StyledTitle = styled.Text`
     font-family: NunitoSans-Bold;

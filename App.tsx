@@ -1,6 +1,5 @@
 import { type ReactElement } from "react";
-import { StyledContainer, PrimaryTitle, PrimaryButton } from "./src/shared/ui";
-import Login from "./src/screens/Login";
+import Login from "@/pages/Login/ui/Login";
 import { useFonts } from "expo-font";
 
 const App = (): ReactElement => {
@@ -8,7 +7,7 @@ const App = (): ReactElement => {
         Inter: "@/assets/fonts/Inter.ttf",
         "Inter-Semibold": "@/assets/fonts/Inter-Semibold.otf",
         "Navigo-Medium": "@/assets/fonts/Navigo-Medium.ttf",
-        NunitoSans: "@/assets/fonts/NunitoSans.ttf",
+        "NunitoSans": "@/assets/fonts/NunitoSans.ttf",
         "NunitoSans-Bold": "@/assets/fonts/NunitoSans-Bold.ttf",
         "NunitoSans-Regular": "@/assets/fonts/NunitoSans-Regular.ttf",
         "NunitoSans-Semibold": "@/assets/fonts/NunitoSans-Semibold.ttf",
