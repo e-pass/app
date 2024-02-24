@@ -8,7 +8,6 @@ export const Container = ({ children }: { children: ReactNode }): ReactElement =
 
 const StyledContainer = styled.SafeAreaView`
     flex: 1;
-    background-color: ${colors.primary};
     margin: 0 16px 28px;
 `;
 

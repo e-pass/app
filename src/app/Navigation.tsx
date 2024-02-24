@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator();
 export const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Coaches">
+            <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Coaches" component={Coaches} />
                 <Stack.Screen name="Login" component={Login} />
             </Stack.Navigator>
