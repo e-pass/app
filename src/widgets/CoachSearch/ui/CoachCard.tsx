@@ -1,6 +1,6 @@
 import React, { type FC } from "react";
 import styled from "styled-components/native";
-import { colors } from "@/shared/const";
+import { colors } from "src/shared/constants";
 import { useFonts } from "expo-font";
 
 import ThreeDots from "@/assets/icons/three-dots.svg";

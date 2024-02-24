@@ -1,6 +1,6 @@
 import { type ReactElement, type ReactNode } from "react";
 import styled from "styled-components/native";
-import { colors } from "@/shared/const";
+import { colors } from "src/shared/constants";
 
 export const Container = ({ children }: { children: ReactNode }): ReactElement => {
     return <StyledContainer>{children}</StyledContainer>;

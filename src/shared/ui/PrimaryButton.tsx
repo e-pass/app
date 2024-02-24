@@ -1,13 +1,13 @@
 import styled from "styled-components/native";
 import { type ReactElement } from "react";
-import { colors } from "@/shared/const";
-import { type PressableProps } from "react-native";
+import { colors } from "src/shared/constants";
+import { type PressableProps, StyleSheet } from "react-native";
 
 const Button = styled.Pressable`
     width: 100%;
     padding: 16px;
     background-color: ${colors.orange};
-    border-radius: 12px;
+    border-radius: 16px;
     margin-top: 12px;
 `;
 
@@ -23,13 +23,23 @@ const Text = styled.Text`
 
 interface ButtonProps extends PressableProps {
     label: string;
+    disabled?: boolean;
 }
 
 /** Primary Button | Accepts label (string), and other props valid to Pressable  */
-export const PrimaryButton = ({ label, ...props }: ButtonProps): ReactElement => {
+export const PrimaryButton = ({ label, disabled = false, ...props }: ButtonProps): ReactElement => {
     return (
-        <Button {...props}>
-            <Text>{label}</Text>
+        <Button {...props} style={disabled && styles.disabledButton} disabled={disabled}>
+            <Text style={disabled && styles.disabledText}>{label}</Text>
         </Button>
     );
 };
+
+const styles = StyleSheet.create({
+    disabledButton: {
+        backgroundColor: "#A39FA1",
+    },
+    disabledText: {
+        color: "#F5F1F3",
+    },
+});

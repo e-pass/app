@@ -1,7 +1,7 @@
 import React, { type FC } from "react";
 import { Logo } from "@/assets/icons";
 import { InnerContainer, PrimaryButton, PrimaryInput } from "@/shared/ui";
-import { B2Mobile, H1Mobile, TextLink } from "@/shared/const";
+import { B2Mobile, H1Mobile, TextLink } from "src/shared/constants";
 import styled from "styled-components/native";
 
 const LoginForm: FC = () => {
