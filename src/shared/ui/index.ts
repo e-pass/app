@@ -1,4 +1,6 @@
-
+export { BackButton } from "./BackButton";
+export { CloseButton } from "./CloseButton";
+export { MainTitle } from "./MainTitle";
 export { default as SearchInput } from "./SearchInput";
 export { Container, InnerContainer } from "./Container";
 export { PrimaryButton } from "./PrimaryButton";

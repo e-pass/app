@@ -33,9 +33,8 @@ const CoachSearch: FC = () => {
             <SearchInput />
             <CoachContainer style={isEmpty ? styles.empty : styles.notEmpty}>
                 {isEmpty
-                    ? <Empty/>
-                    : <CoachCard />
-                }
+                    ? <Empty />
+                    : <CoachCard />}
             </CoachContainer>
             <ButtonContainer>
                 <PrimaryButton label="+" style={{ width: 56, marginLeft: 0 }} />
