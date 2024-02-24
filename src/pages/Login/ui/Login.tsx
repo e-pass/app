@@ -3,7 +3,7 @@ import { Container } from "@/shared/ui";
 import { StatusBar } from "react-native";
 import { Header } from "@/widgets/Header";
 import { colors } from "@/shared/const";
-import LoginForm from "@/features/LoginForm/auth/ui/LoginForm";
+import LoginForm from "@/features/auth/ui/LoginForm";
 
 const Login: FC = () => {
     return (

@@ -1,11 +1,12 @@
 import styled from "styled-components/native";
+import { colors } from "@/shared/const/colors";
 
 // headers
 export const H1Mobile = styled.Text`
   font-family: "NunitoSans-Bold";
   font-size: 34px;
   font-weight: 600;
-  line-height: 24px;
+  line-height: 36px;
 `;
 
 export const H2Mobile = styled.Text`
@@ -55,4 +56,13 @@ export const B4Mobile = styled.Text`
   font-size: 10px;
   font-weight: 400;
   line-height: 14px;
+`;
+
+export const TextLink = styled.Text`
+  font-family: "NunitoSans-Semibold";
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: underline;
+  color: ${colors.violet};
 `;
