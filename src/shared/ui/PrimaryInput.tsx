@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { colors } from "@/shared/const";
+import { colors } from "@/shared/constants";
 import { type ReactElement } from "react";
 import { StyleSheet, type TextInputProps } from "react-native";
 
