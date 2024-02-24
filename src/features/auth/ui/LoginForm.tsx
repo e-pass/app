@@ -4,14 +4,14 @@ import { InnerContainer, PrimaryButton, PrimaryInput } from "@/shared/ui";
 import { B2Mobile, H1Mobile, TextLink } from "src/shared/constants";
 import styled from "styled-components/native";
 
-const LoginForm: FC = () => {
+const LoginForm = ({ navigation }: { navigation: any }) => {
     return (
         <InnerContainer>
             <Logo style={{ marginTop: 20, marginBottom: 32 }} width={200} height={43} />
             <H1Mobile style={{ marginBottom: 12 }}>Вход в систему</H1Mobile>
             <ExtraView>
                 <B2Mobile>Нет аккаунта?</B2Mobile>
-                <TextLink>Зарегистрироваться</TextLink>
+                <TextLink onPress={() => navigation.navigate("Registration")}>Зарегистрироваться</TextLink>
             </ExtraView>
             <PrimaryInput style={{ marginBottom: 20 }} />
             <PrimaryButton label={"Войти"} />

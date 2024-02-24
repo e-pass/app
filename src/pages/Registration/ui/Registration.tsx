@@ -42,10 +42,10 @@ const Registration = ({ navigation }: { navigation: any }) => {
                     <PrimaryInput placeholder="Фамилия" />
                     <PrimaryInput placeholder="Номер телефона" />
                     <Checkbox isChecked={isTrainer} changeChecked={() => { setIsTrainer(prevState => !prevState); }}
-                              text="Я тренер" />
+                              text="Я — тренер" />
                     <Checkbox isChecked={isAgreePrivacy} changeChecked={() => { setIsAgreePrivacy(prevState => !prevState); }}
                               text="Соглашаюсь с Политикой обработки персональных данных" />
-                    <PrimaryButton  label="Зарегистрироваться" />
+                    <PrimaryButton disabled={true}  label="Зарегистрироваться" />
                 </Form>
             </ScrollView>
         </Container>
