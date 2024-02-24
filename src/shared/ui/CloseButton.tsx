@@ -20,7 +20,8 @@ interface Props extends ButtonProps {
     right?: DimensionValue | undefined;
     bottom?: DimensionValue | undefined;
 }
-const CloseButton: FC<Props> = (
+
+export const CloseButton: FC<Props> = (
     {
         onPress,
         position = "absolute",
@@ -36,4 +37,3 @@ const CloseButton: FC<Props> = (
     );
 };
 
-export default CloseButton;

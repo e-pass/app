@@ -1,16 +1,7 @@
-import { Container, InnerContainer } from "../shared/ui/Container";
-import { StatusBar, Text, TouchableOpacity } from "react-native";
-import Header from "../shared/ui/Header";
-import {
-    ExtraText,
-    ExtraView,
-    StyledTitle,
-    TextLink,
-    TextLinkContent,
-} from "../shared/ui/auth/styles";
-import styled from "styled-components/native";
-import { PrimaryButton } from "../shared/ui/PrimaryButton";
-import { PrimaryInput } from "../shared/ui/PrimaryInput";
+import { Container, InnerContainer, PrimaryButton, PrimaryInput } from "../../shared/ui";
+import { StatusBar, Text } from "react-native";
+import Header from "../../shared/ui/Header";
+import { ExtraText, ExtraView, StyledTitle, TextLink, TextLinkContent } from "../../shared/ui/auth/styles";
 
 const Login = () => {
     return (

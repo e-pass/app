@@ -1,5 +1,5 @@
-export { default as BackButton } from "./BackButton";
-export { default as CloseButton } from "./CloseButton";
+export { BackButton } from "./BackButton";
+export { CloseButton } from "./CloseButton";
 export { MainTitle } from "./MainTitle";
 export { default as SearchInput } from "./SearchInput";
 export { Container, InnerContainer } from "./Container";
