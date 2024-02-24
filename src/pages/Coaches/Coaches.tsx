@@ -1,13 +1,13 @@
 import { type FC } from "react";
-import { CoachSearch } from "../../widgets/CoachSearch";
-import { View } from "react-native";
+import { CoachSearch } from "@/widgets/CoachSearch";
+import { Container } from "@/shared/ui";
 
 const Coaches: FC = () => {
     return (
-        <View>
+        <Container>
             {/* <MainHeader title="Тренеры" isBackBtn isCloseBtn /> */}
             <CoachSearch />
-        </View>
+        </Container>
     );
 };
 

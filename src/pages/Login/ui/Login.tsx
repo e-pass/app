@@ -9,7 +9,7 @@ const Login: FC = () => {
     return (
         <Container>
             <StatusBar barStyle="dark-content" backgroundColor={colors.primary} />
-            <Header rightIcon="close"></Header>
+            <Header headerLayout={{ rightIcon: true }} rightIcon="close"></Header>
             <LoginForm />
         </Container>
     );

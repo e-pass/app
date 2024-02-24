@@ -1,10 +1,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Coaches from "./src/pages/Coaches/Coaches";
-import { Login } from "@/pages/Login";
 import { NavigationContainer } from "@react-navigation/native";
+import { Login } from "@/pages/Login";
+import Coaches from "@/pages/Coaches/Coaches";
 
 const Stack = createNativeStackNavigator();
-
 export const Navigation = () => {
     return (
         <NavigationContainer>

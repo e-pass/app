@@ -1,6 +1,6 @@
 import { type FC } from "react";
 import styled from "styled-components/native";
-import { colors } from "../const/colors";
+import { colors } from "@/shared/const";
 
 const Body = styled.View`
     display: flex;
