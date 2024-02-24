@@ -20,7 +20,8 @@ interface Props extends ButtonProps {
     right?: DimensionValue | undefined;
     bottom?: DimensionValue | undefined;
 }
-const BackButton: FC<Props> = (
+
+export const BackButton: FC<Props> = (
     {
         onPress,
         position = "absolute",
@@ -36,4 +37,3 @@ const BackButton: FC<Props> = (
     );
 };
 
-export default BackButton;

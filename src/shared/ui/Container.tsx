@@ -1,6 +1,5 @@
 import { type ReactElement, type ReactNode } from "react";
 import styled from "styled-components/native";
-import { SafeAreaView } from "react-native";
 import { colors } from "../const/colors";
 
 export const Container = ({ children }: { children: ReactNode }): ReactElement => {

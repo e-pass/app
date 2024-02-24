@@ -1,7 +1,6 @@
 import { type ReactElement } from "react";
-import { StyledContainer, PrimaryTitle, PrimaryButton } from "./src/shared/ui";
-import Login from "./src/screens/Login";
 import { useFonts } from "expo-font";
+import { Navigation } from "./Navigation";
 
 const App = (): ReactElement => {
     const [fontsLoaded] = useFonts({
@@ -21,7 +20,7 @@ const App = (): ReactElement => {
         "SFProText-Regular": "@/assets/fonts/SFProText-Regular.ttf",
         "SFProText-Semibold": "@/assets/fonts/SFProText-Semibold.ttf",
     });
-    return <Login />;
+    return <Navigation />;
 };
 
 export default App;

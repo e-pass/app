@@ -1,18 +1,15 @@
 import React, { type FC } from "react";
-import { Text, View } from "react-native";
-import BackButton from "../../../shared/ui/BackButton";
-import { MainTitle } from "../../../shared/ui/MainTitle";
+import { BackButton, CloseButton, MainTitle } from "../../../shared/ui";
 import styled from "styled-components/native";
-import CloseButton from "../../../shared/ui/CloseButton";
 
 const Body = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  margin: 14px 0 21px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 14px 0 21px;
 `;
 
 interface Props {
