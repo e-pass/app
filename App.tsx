@@ -1,10 +1,10 @@
 import { type ReactElement } from "react";
-import Login from "@/pages/Login/ui/Login";
 import { useFonts } from "expo-font";
+import { Navigation } from "./Navigation";
 
 const App = (): ReactElement => {
     const [fontsLoaded] = useFonts({
-        Inter: "@/assets/fonts/Inter.ttf",
+        "Inter": "@/assets/fonts/Inter.ttf",
         "Inter-Semibold": "@/assets/fonts/Inter-Semibold.otf",
         "Navigo-Medium": "@/assets/fonts/Navigo-Medium.ttf",
         "NunitoSans": "@/assets/fonts/NunitoSans.ttf",
@@ -20,7 +20,7 @@ const App = (): ReactElement => {
         "SFProText-Regular": "@/assets/fonts/SFProText-Regular.ttf",
         "SFProText-Semibold": "@/assets/fonts/SFProText-Semibold.ttf",
     });
-    return <Login />;
+    return <Navigation />;
 };
 
 export default App;
