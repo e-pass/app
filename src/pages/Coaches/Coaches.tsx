@@ -1,5 +1,5 @@
 import { type FC } from "react";
-import { CoachSearch } from "../../widgets/CoachSearch";
+import { CoachSearch } from "@/widgets/CoachSearch";
 import { View } from "react-native";
 
 const Coaches: FC = () => {

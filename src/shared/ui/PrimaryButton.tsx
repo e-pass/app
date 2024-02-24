@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { type ReactElement } from "react";
-import { colors } from "../const/colors";
+import { colors } from "@/shared/const";
 import { type PressableProps } from "react-native";
 
 const Button = styled.Pressable`

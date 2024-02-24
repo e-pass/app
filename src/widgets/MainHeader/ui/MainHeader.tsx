@@ -1,5 +1,5 @@
 import React, { type FC } from "react";
-import { BackButton, CloseButton, MainTitle } from "../../../shared/ui";
+import { BackButton, CloseButton,  PrimaryTitle } from "@/shared/ui";
 import styled from "styled-components/native";
 
 const Body = styled.View`
@@ -33,7 +33,7 @@ const MainHeader: FC<Props> = (
             {isBackBtn && (
                 <BackButton title="" onPress={onBackPress} top={4} left={0} />
             )}
-            <MainTitle>{title}</MainTitle>
+            <PrimaryTitle>{title}</PrimaryTitle>
             {isCloseBtn && (
                 <CloseButton title="" onPress={onBackPress} top={4} right={0} />
             )}

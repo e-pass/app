@@ -2,7 +2,7 @@ import React, { type FC } from "react";
 import { StyleSheet } from "react-native";
 import Empty from "./Empty";
 import styled from "styled-components/native";
-import { PrimaryButton, SearchInput } from "../../../shared/ui";
+import { PrimaryButton, SearchInput } from "@/shared/ui";
 import CoachCard from "./CoachCard";
 
 const isEmpty = false;
