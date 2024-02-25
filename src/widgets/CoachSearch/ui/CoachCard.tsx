@@ -1,7 +1,9 @@
 import React, { type FC } from "react";
 import styled from "styled-components/native";
-import { colors } from "../../../shared/const/colors";
+import { colors } from "src/shared/constants";
 import { useFonts } from "expo-font";
+
+import ThreeDots from "@/assets/icons/three-dots.svg";
 
 const Body = styled.View`
     display: flex;
@@ -58,15 +60,7 @@ const GroupIcon = styled.Image`
     width: 22px;
     height: 24px;
     object-fit: contain;
-`;
-
-const Dots = styled.Image`
-    width: 24px;
-    height: 24px;
-    margin-top: 10px;
-    flex-basis: 24px;
-`;
-
+`;1
 
 const CoachCard: FC = () => {
     const [fontsLoaded] = useFonts({
@@ -85,7 +79,7 @@ const CoachCard: FC = () => {
                     <Group>1 группа</Group>
                 </GroupContainer>
             </InfoContainer>
-            <Dots source={require("@/assets/icons/three-dots.png")} />
+            <ThreeDots width={24} height={24} style={{ marginTop: 10, flexBasis: 24 }} />
         </Body>
     );
 };

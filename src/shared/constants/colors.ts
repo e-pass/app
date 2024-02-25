@@ -7,6 +7,7 @@ export const colors = {
     lightGray: "rgba(147, 147, 142, 0.12)",
     black: "#0B0B0B",
     beige: "#F3F0E9",
+    violet: "#8638E5",
     groupRed: "#F59898",
     groupOrange: "#FFB087",
     groupYellow: "#F6E58B",

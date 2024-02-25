@@ -1,6 +1,6 @@
 import { type ReactElement } from "react";
 import { useFonts } from "expo-font";
-import { Navigation } from "./Navigation";
+import { Navigation } from "./src/app/Navigation";
 
 const App = (): ReactElement => {
     const [fontsLoaded] = useFonts({

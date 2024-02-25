@@ -1,15 +1,17 @@
 import styled from "styled-components/native";
-import { colors } from "../const/colors";
+import { colors } from "@/shared/constants";
 import { type ReactElement } from "react";
 import { StyleSheet, type TextInputProps } from "react-native";
 
 const Input = styled.TextInput`
     width: 100%;
     padding: 22px 16px;
-    border-radius: 12px;
+    border-radius: 16px;
     border-width: 1px;
     border-style: solid;
-    border-color: ${colors.gray};
+    background-color: #F5F1F3;
+    border-color: #F5F1F3;
+    color: #A39FA1;
 `;
 
 const Body = styled.View`

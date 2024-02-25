@@ -1,6 +1,6 @@
 import { type ReactElement, type ReactNode } from "react";
 import styled from "styled-components/native";
-import { colors } from "../const/colors";
+import { colors } from "src/shared/constants";
 
 export const Container = ({ children }: { children: ReactNode }): ReactElement => {
     return <StyledContainer>{children}</StyledContainer>;
@@ -8,9 +8,7 @@ export const Container = ({ children }: { children: ReactNode }): ReactElement =
 
 const StyledContainer = styled.SafeAreaView`
     flex: 1;
-    background-color: ${colors.primary};
-    padding-horizontal: 16px;
-    padding-bottom: 28px;
+    margin: 0 16px 28px;
 `;
 
 export const InnerContainer = styled.View`
