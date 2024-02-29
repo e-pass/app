@@ -6,3 +6,4 @@ export { default as Edit } from "./edit.svg";
 export { default as Logo } from "./logo.svg";
 export { default as ThreeDots } from "./three-dots.svg";
 export { default as Checked } from "./checked.svg";
+export { default as PhotoIcon } from "./photo.svg";

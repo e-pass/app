@@ -1,0 +1,1 @@
+export { default as EditCoachProfile } from "./ui/EditCoachProfile";

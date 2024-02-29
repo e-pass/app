@@ -4,6 +4,7 @@ import { Login } from "@/pages/Login";
 import Coaches from "@/pages/Coaches/Coaches";
 import { Registration } from "@/pages/Registration";
 import { CoachProfile } from "@/pages/CoachProfile";
+import { EditCoachProfile } from "@/pages/EditCoachProfile";
 
 const Stack = createNativeStackNavigator();
 export const Navigation = () => {
@@ -15,6 +16,7 @@ export const Navigation = () => {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Coaches" component={Coaches} />
                 <Stack.Screen name="CoachProfile" component={CoachProfile} />
+                <Stack.Screen name="EditCoachProfile" component={EditCoachProfile} />
             </Stack.Navigator>
         </NavigationContainer>
     );
