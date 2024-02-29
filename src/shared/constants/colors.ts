@@ -15,4 +15,5 @@ export const colors = {
     groupLightBlue: "#9DEBEF",
     groupBlue: "#81A0F0",
     groupViolet: "#D590F5",
+    white: "#fff",
 };
