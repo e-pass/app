@@ -27,25 +27,27 @@
       "favicon": "./assets/icon.png"
     },
     "plugins": [
-      ["expo-font",
-      {
-        "fonts": [
-          "./assets/fonts/Inter.ttf",
-          "./assets/fonts/Navigo-Medium.ttf",
-          "./assets/fonts/NunitoSans.ttf",
-          "./assets/fonts/NunitoSans-Bold.ttf",
-          "./assets/fonts/NunitoSans-Regular.ttf",
-          "./assets/fonts/NunitoSans-Semibold.ttf",
-          "./assets/fonts/Roboto-Medium.ttf",
-          "./assets/fonts/SF-Pro-Display-Bold.otf",
-          "./assets/fonts/SF-Pro-Display-Regular.otf",
-          "./assets/fonts/SF-Pro-Display-Semibold.otf",
-          "./assets/fonts/SFProText-Bold.ttf",
-          "./assets/fonts/SFProText-Medium.ttf",
-          "./assets/fonts/SFProText-Regular.ttf",
-          "./assets/fonts/SFProText-Semibold.ttf"
-        ]
-      }]
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter.ttf",
+            "./assets/fonts/Navigo-Medium.ttf",
+            "./assets/fonts/NunitoSans.ttf",
+            "./assets/fonts/NunitoSans-Bold.ttf",
+            "./assets/fonts/NunitoSans-Regular.ttf",
+            "./assets/fonts/NunitoSans-Semibold.ttf",
+            "./assets/fonts/Roboto-Medium.ttf",
+            "./assets/fonts/SF-Pro-Display-Bold.otf",
+            "./assets/fonts/SF-Pro-Display-Regular.otf",
+            "./assets/fonts/SF-Pro-Display-Semibold.otf",
+            "./assets/fonts/SFProText-Bold.ttf",
+            "./assets/fonts/SFProText-Medium.ttf",
+            "./assets/fonts/SFProText-Regular.ttf",
+            "./assets/fonts/SFProText-Semibold.ttf"
+          ]
+        }
+      ]
     ]
   }
 }
