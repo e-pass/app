@@ -37,3 +37,6 @@ yarn-error.*
 #ide
 .idea/
 .fleet/
+
+#env
+.env
