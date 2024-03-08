@@ -8,7 +8,7 @@ const Stack = createNativeStackNavigator();
 
 const RegistrationStack = () => {
     return (
-        <Stack.Navigator initialRouteName="RegistrationCode" screenOptions={{ headerShown: false, contentStyle: { backgroundColor: "#FBFEFD" } }}>
+        <Stack.Navigator initialRouteName="RegistrationForm" screenOptions={{ headerShown: false, contentStyle: { backgroundColor: "#FBFEFD" } }}>
             <Stack.Screen name="RegistrationForm" component={RegistrationForm} />
             <Stack.Screen name="RegistrationCode" component={RegistrationCode} initialParams={{ phoneNumber: "+7 912 345 67 89" }} />
         </Stack.Navigator>
@@ -18,7 +18,7 @@ const RegistrationStack = () => {
 export const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Registration"
+            <Stack.Navigator initialRouteName="Login"
                              screenOptions={{ headerShown: false, contentStyle: { backgroundColor: "#FBFEFD" } }}>
                 <Stack.Screen name="Registration" component={RegistrationStack} />
                 <Stack.Screen name="Login" component={Login} />

@@ -1,5 +1,5 @@
 import { Container } from "@/shared/ui";
-import { Animated, Pressable, ScrollView, StatusBar, StyleSheet } from "react-native";
+import { Animated, Pressable, ScrollView, StatusBar, StyleSheet, Vibration } from "react-native";
 import { B2Mobile, B3Mobile, colors, H1Mobile } from "@/shared/constants";
 import { Header } from "@/widgets/Header";
 import { Logo } from "@/assets/icons";
@@ -81,8 +81,10 @@ const RegistrationCode = ({ route, navigation }: { route: any, navigation: any }
 
     const digits: IDigit[] = useMemo(() => {
         if (value.length === 4) {
-            if (+value !== TEST_CODE) setIsError(true);
-            else {
+            if (+value !== TEST_CODE) {
+                setIsError(true);
+                Vibration.vibrate();
+            } else {
                 setTimeout(() => {
                     navigation.replace("Login");
                 }, 1000);

@@ -4,10 +4,6 @@ import { type ReactElement, useEffect, useRef, useState } from "react";
 import { Animated, StyleSheet, TextInput, type TextInputProps } from "react-native";
 import MaskInput from "react-native-mask-input";
 
-const Input = styled.TextInput`
-
-`;
-
 const Body = styled.View`
     height: 66px;
     display: flex;
@@ -91,7 +87,7 @@ export const PrimaryInput = ({ isError = false, placeholder, changedState = () =
             </Animated.View>
 
             {props.textContentType === "telephoneNumber" ? (
-                <MaskInput style={[styles.input, isError && styles.error, value.length === 0 && { opacity: 0 }]}
+                <MaskInput selectionColor="#8638E5" style={[styles.input, isError && styles.error, !isFocused && { opacity: 0 }]}
                            mask={["+", /\d/, " ", "(", /\d/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/]}
                            value={value} onChangeText={(unmasked) => {
                     setValue(unmasked);
@@ -101,7 +97,7 @@ export const PrimaryInput = ({ isError = false, placeholder, changedState = () =
                     changeIsFocused(false);
                 }} {...props} />
             ) : (
-                <TextInput style={[styles.input, isError && styles.error]} value={value} onChangeText={setValue}
+                <TextInput selectionColor="#8638E5" style={[styles.input, isError && styles.error]} value={value} onChangeText={setValue}
                            onFocus={() => {
                                changeIsFocused(true);
                            }} onBlur={() => {
