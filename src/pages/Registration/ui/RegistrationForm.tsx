@@ -1,7 +1,7 @@
 import { Container, PrimaryButton, PrimaryInput } from "@/shared/ui";
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StatusBar } from "react-native";
+import { KeyboardAvoidingView, Pressable, ScrollView, StatusBar } from "react-native";
 import styled from "styled-components/native";
-import { B2Mobile, colors, H1Mobile, TextLink } from "src/shared/constants";
+import { B2Mobile, colors, H1Mobile, TextLink } from "@/shared/constants";
 import { Header } from "@/widgets/Header";
 import { Logo } from "@/assets/icons";
 import React, { useEffect, useState } from "react";
@@ -80,7 +80,9 @@ const RegistrationForm = ({ navigation }: { navigation: any }) => {
                     <Checkbox isChecked={isAgreePrivacy} changeChecked={() => { setIsAgreePrivacy(prevState => !prevState); }}
                               text="Соглашаюсь с Политикой обработки персональных данных" />
 
-                    <PrimaryButton disabled={disabledButton} onPress={() => { navigation.navigate("RegistrationCode"); }}  label="Зарегистрироваться" />
+                    <PrimaryButton disabled={disabledButton} onPress={() => { navigation.navigate("RegistrationCode", {
+                        phoneNumber: formData.phoneNumber
+                    }); }}  label="Зарегистрироваться" />
                 </Form>
             </ScrollView>
             </KeyboardAvoidingView>

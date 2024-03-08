@@ -64,5 +64,5 @@ export const TextLink = styled.Text`
     font-weight: 500;
     line-height: 20px;
     text-decoration: underline;
-    color: ${colors.violet};
+    color: ${colors.purple};
 `;

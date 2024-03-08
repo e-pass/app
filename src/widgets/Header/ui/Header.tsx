@@ -6,6 +6,7 @@ import { View, StyleSheet, TouchableOpacity as Touch, Image } from "react-native
 interface HeaderProps extends React.PropsWithChildren {
     headerLayout?: HeaderLayout;
     rightIcon?: "close" | "edit" | "dots" | "avatar";
+    navigation?: any;
 }
 
 interface HeaderLayout {
@@ -17,6 +18,7 @@ const Header: FC<HeaderProps> = ({
     children,
     headerLayout = { leftIcon: true, rightIcon: true },
     rightIcon,
+    navigation,
 }) => {
     const rightIco = useMemo(
         () =>
@@ -38,7 +40,9 @@ const Header: FC<HeaderProps> = ({
     const getIconLayout = (type: "left" | "right", value: boolean): ReactNode => {
         const layout = new Map([
             ["left",
-            <Touch key="left">
+            <Touch key="left" onPress={() => {
+                if (navigation !== undefined) navigation.goBack();
+            }}>
                 <Back width={32} height={32} />
             </Touch>,
             ],

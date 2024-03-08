@@ -1,10 +1,12 @@
-import React, { type FC } from "react";
+import React, { useState } from "react";
 import { Logo } from "@/assets/icons";
 import { InnerContainer, PrimaryButton, PrimaryInput } from "@/shared/ui";
 import { B2Mobile, H1Mobile, TextLink } from "src/shared/constants";
 import styled from "styled-components/native";
 
 const LoginForm = ({ navigation }: { navigation: any }) => {
+    const [phone, setPhone] = useState<string>();
+
     return (
         <InnerContainer>
             <Logo style={{ marginTop: 20, marginBottom: 32 }} width={200} height={43} />
@@ -13,7 +15,9 @@ const LoginForm = ({ navigation }: { navigation: any }) => {
                 <B2Mobile>Нет аккаунта?</B2Mobile>
                 <TextLink onPress={() => navigation.navigate("Registration")}>Зарегистрироваться</TextLink>
             </ExtraView>
-            <PrimaryInput style={{ marginBottom: 20 }} />
+            <PrimaryInput changedState={(value: string) => {
+                setPhone(value);
+            }} textContentType="telephoneNumber" placeholder="Номер телефона" />
             <PrimaryButton label={"Войти"} />
         </InnerContainer>
     );
