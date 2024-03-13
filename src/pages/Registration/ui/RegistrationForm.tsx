@@ -50,12 +50,13 @@ const RegistrationForm = ({ navigation }: { navigation: any }) => {
 
     const sendForm = useCallback(async () => {
         const response = await registrationPost({ ...formData, isTrainer });
+
         if (response === undefined) {
             alert("Error");
             return;
         }
 
-        navigation.navigate("RegistrationCode", {
+        navigation.navigate("VerificationCode", {
             phoneNumber: formData.phoneNumber,
         });
     }, [formData, isTrainer]);

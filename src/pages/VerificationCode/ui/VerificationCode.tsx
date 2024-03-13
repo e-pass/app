@@ -3,7 +3,7 @@ import { Animated, Pressable, ScrollView, StatusBar, StyleSheet, Vibration } fro
 import styled from "styled-components/native";
 
 import { Logo } from "@/assets/icons";
-import { sendCodePost } from "@/features/api";
+import { sendCodePost, verifyCodePost } from "@/features/api";
 import { type IDigit } from "@/pages/Registration/models/IDigit";
 import { B2Mobile, B3Mobile, colors, H1Mobile } from "@/shared/constants";
 import { Container } from "@/shared/ui";
@@ -86,7 +86,7 @@ const Digit = ({
 
 const TIMER_SECONDS = 60;
 
-const RegistrationCode = ({ route, navigation }: { route: any; navigation: any }) => {
+const VerificationCode = ({ route, navigation }: { route: any; navigation: any }) => {
     const { phoneNumber } = route.params;
 
     const [countdown, setCountdown] = useState<number>(TIMER_SECONDS);
@@ -94,12 +94,16 @@ const RegistrationCode = ({ route, navigation }: { route: any; navigation: any }
     const [value, setValue] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
 
-    const [code, setCode] = useState<number | undefined>(undefined);
-
     const sendCode = async () => {
         if (!phoneNumber) return;
 
         const response = await sendCodePost(phoneNumber);
+
+        if (!response) {
+            alert("Error");
+            return;
+        }
+
         setCountdown(TIMER_SECONDS);
 
         const interval = setInterval(() => {
@@ -110,14 +114,14 @@ const RegistrationCode = ({ route, navigation }: { route: any; navigation: any }
         }, 1000);
     };
 
-    const checkCode = async (currentCode: number) => {
-        if (code === undefined) return;
+    const checkCode = async () => {
+        const response = await verifyCodePost(phoneNumber, +value);
 
-        if (currentCode !== code) {
+        if (!response) {
             setIsError(true);
-            Vibration.vibrate();
             return;
         }
+
         navigation.replace("Coaches");
     };
 
@@ -138,7 +142,7 @@ const RegistrationCode = ({ route, navigation }: { route: any; navigation: any }
     }, [value, isInputFocus]);
 
     useEffect(() => {
-        if (value.length === 4) checkCode(+value);
+        if (value.length === 4) checkCode();
         else setIsError(false);
     }, [value]);
 
@@ -193,21 +197,17 @@ const RegistrationCode = ({ route, navigation }: { route: any; navigation: any }
                     </B3Mobile>
                 )}
 
-                {+value !== code && (
-                    <>
-                        {countdown < 0 ? (
-                            <Pressable onPress={sendCode}>
-                                <B2Mobile style={{ marginTop: 24 }}>
-                                    Не пришёл код? Запросить ещё раз.
-                                </B2Mobile>
-                            </Pressable>
-                        ) : (
-                            <B2Mobile style={{ marginTop: 24 }}>
-                                Не пришёл код? Запросить код ещё раз через {"\n"}
-                                {countdown} секунд.
-                            </B2Mobile>
-                        )}
-                    </>
+                {countdown < 0 ? (
+                    <Pressable onPress={sendCode}>
+                        <B2Mobile style={{ marginTop: 24 }}>
+                            Не пришёл код? Запросить ещё раз.
+                        </B2Mobile>
+                    </Pressable>
+                ) : (
+                    <B2Mobile style={{ marginTop: 24 }}>
+                        Не пришёл код? Запросить код ещё раз через {"\n"}
+                        {countdown} секунд.
+                    </B2Mobile>
                 )}
             </ScrollView>
         </Container>
@@ -223,4 +223,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default RegistrationCode;
+export default VerificationCode;

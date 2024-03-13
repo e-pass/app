@@ -14,7 +14,7 @@ const LoginForm = ({ navigation }: { navigation: any }) => {
             <H1Mobile style={{ marginBottom: 12 }}>Вход в систему</H1Mobile>
             <ExtraView>
                 <B2Mobile>Нет аккаунта?</B2Mobile>
-                <TextLink onPress={() => navigation.navigate("Registration")}>
+                <TextLink onPress={() => navigation.navigate("RegistrationForm")}>
                     Зарегистрироваться
                 </TextLink>
             </ExtraView>
@@ -25,7 +25,14 @@ const LoginForm = ({ navigation }: { navigation: any }) => {
                 textContentType='telephoneNumber'
                 placeholder='Номер телефона'
             />
-            <PrimaryButton label='Войти' />
+            <PrimaryButton
+                onPress={() =>
+                    navigation.navigate("VerificationCode", {
+                        phoneNumber: phone,
+                    })
+                }
+                label='Войти'
+            />
         </InnerContainer>
     );
 };
