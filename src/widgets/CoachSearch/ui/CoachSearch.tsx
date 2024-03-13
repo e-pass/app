@@ -1,9 +1,11 @@
 import React, { type FC } from "react";
 import { StyleSheet } from "react-native";
-import Empty from "./Empty";
 import styled from "styled-components/native";
+
 import { PrimaryButton, SearchInput } from "@/shared/ui";
+
 import CoachCard from "./CoachCard";
+import Empty from "./Empty";
 
 const isEmpty = false;
 
@@ -27,22 +29,17 @@ const ButtonContainer = styled.View`
     justify-content: flex-end;
 `;
 
-const CoachSearch: FC = () => {
-    return (
-        <Body>
-            <SearchInput />
-            <CoachContainer style={isEmpty ? styles.empty : styles.notEmpty}>
-                {isEmpty
-                    ? <Empty />
-                    : <CoachCard />}
-            </CoachContainer>
-            <ButtonContainer>
-                <PrimaryButton label="+" style={{ width: 56, marginLeft: 0 }} />
-            </ButtonContainer>
-        </Body>
-
-    );
-};
+const CoachSearch: FC = () => (
+    <Body>
+        <SearchInput />
+        <CoachContainer style={isEmpty ? styles.empty : styles.notEmpty}>
+            {isEmpty ? <Empty /> : <CoachCard />}
+        </CoachContainer>
+        <ButtonContainer>
+            <PrimaryButton label='+' style={{ width: 56, marginLeft: 0 }} />
+        </ButtonContainer>
+    </Body>
+);
 
 const styles = StyleSheet.create({
     empty: {

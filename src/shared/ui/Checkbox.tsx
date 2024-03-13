@@ -1,11 +1,12 @@
 import styled from "styled-components/native";
-import { B2Mobile } from "@/shared/constants";
+
 import { Checked } from "@/assets/icons";
+import { B2Mobile } from "@/shared/constants";
 
 interface Props {
-    isChecked: boolean,
+    isChecked: boolean;
     changeChecked: () => void;
-    text: string
+    text: string;
 }
 
 const Element = styled.Pressable`

@@ -1,8 +1,7 @@
-import { type FC } from "react";
-import { CoachSearch } from "@/widgets/CoachSearch";
 import { Container } from "@/shared/ui";
+import { CoachSearch } from "@/widgets/CoachSearch";
 
-const Coaches: FC = () => {
+const Coaches = () => {
     return (
         <Container>
             {/* <MainHeader title="Тренеры" isBackBtn isCloseBtn /> */}

@@ -1,5 +1,5 @@
 export interface IRegistrationFormData {
-    firstname: string,
-    lastname: string,
+    firstname: string;
+    lastname: string;
     phoneNumber: string;
 }

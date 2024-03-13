@@ -1,9 +1,22 @@
-import styled from "styled-components/native";
-import { type ReactElement } from "react";
-import { colors } from "src/shared/constants";
+import React, { type ReactElement } from "react";
 import { type PressableProps, StyleSheet } from "react-native";
+import { colors } from "src/shared/constants";
+import styled from "styled-components/native";
 
-const Button = styled.Pressable`
+interface ButtonProps extends PressableProps {
+    label: string;
+    disabled?: boolean;
+}
+
+/** Primary Button | Accepts label (string), and other props valid to Pressable  */
+export const PrimaryButton = ({ label, disabled = false, ...props }: ButtonProps): ReactElement => (
+    // @ts-expect-error
+    <Element {...props} style={disabled && styles.disabledButton} disabled={disabled}>
+        <Text style={disabled && styles.disabledText}>{label}</Text>
+    </Element>
+);
+
+const Element = styled.TouchableOpacity`
     width: 100%;
     padding: 16px;
     background-color: ${colors.orange};
@@ -20,20 +33,6 @@ const Text = styled.Text`
     letter-spacing: 0;
     user-select: none;
 `;
-
-interface ButtonProps extends PressableProps {
-    label: string;
-    disabled?: boolean;
-}
-
-/** Primary Button | Accepts label (string), and other props valid to Pressable  */
-export const PrimaryButton = ({ label, disabled = false, ...props }: ButtonProps): ReactElement => {
-    return (
-        <Button {...props} style={disabled && styles.disabledButton} disabled={disabled}>
-            <Text style={disabled && styles.disabledText}>{label}</Text>
-        </Button>
-    );
-};
 
 const styles = StyleSheet.create({
     disabledButton: {

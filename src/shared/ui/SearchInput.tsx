@@ -1,6 +1,6 @@
 import { type FC } from "react";
-import styled from "styled-components/native";
 import { colors } from "src/shared/constants";
+import styled from "styled-components/native";
 
 const Body = styled.View`
     display: flex;
@@ -40,7 +40,7 @@ const SearchInput: FC = () => {
     return (
         <Body>
             <Icon source={require("@/assets/icons/search.png")} />
-            <Input placeholder="Поиск" />
+            <Input placeholder='Поиск' />
             <ClearButton>
                 <Icon source={require("@/assets/icons/clear.png")} />
             </ClearButton>

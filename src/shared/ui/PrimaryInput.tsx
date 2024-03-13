@@ -40,9 +40,11 @@ interface InputProps extends TextInputProps {
     changedState?: (value: string) => void;
 }
 
-
 /** Primary Input | Accepts isError (true/false), and other props valid to TextInput  */
-export const PrimaryInput = ({ isError = false, placeholder, changedState = () => {}, ...props }: InputProps): ReactElement => {
+export const PrimaryInput = ({
+                                 isError = false, placeholder, changedState = () => {
+    }, ...props
+                             }: InputProps): ReactElement => {
     const translateY = useRef(new Animated.Value(-8)).current;
     const translateX = useRef(new Animated.Value(0)).current;
     const scale = useRef(new Animated.Value(1)).current;
@@ -67,7 +69,7 @@ export const PrimaryInput = ({ isError = false, placeholder, changedState = () =
             useNativeDriver: true,
         }).start();
         Animated.timing(translateX, {
-            toValue: isFocused ? 6 : 0,
+            toValue: isFocused ? -22 : 0,
             duration: 150,
             useNativeDriver: true,
         }).start();
@@ -87,17 +89,17 @@ export const PrimaryInput = ({ isError = false, placeholder, changedState = () =
             </Animated.View>
 
             {props.textContentType === "telephoneNumber" ? (
-                <MaskInput selectionColor="#8638E5" style={[styles.input, isError && styles.error, !isFocused && { opacity: 0 }]}
+                <MaskInput numberOfLines={1} selectionColor="#8638E5"
+                           style={[styles.input, isError && styles.error, !isFocused && { opacity: 0 }]}
                            mask={["+", /\d/, " ", "(", /\d/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/]}
-                           value={value} onChangeText={(unmasked) => {
-                    setValue(unmasked);
-                }} onFocus={() => {
+                           value={value} onChangeText={(masked) => setValue(masked)} onFocus={() => {
                     changeIsFocused(true);
                 }} onBlur={() => {
                     changeIsFocused(false);
                 }} {...props} />
             ) : (
-                <TextInput selectionColor="#8638E5" style={[styles.input, isError && styles.error]} value={value} onChangeText={setValue}
+                <TextInput numberOfLines={1} selectionColor="#8638E5" style={[styles.input, isError && styles.error]}
+                           value={value} onChangeText={setValue}
                            onFocus={() => {
                                changeIsFocused(true);
                            }} onBlur={() => {
@@ -121,7 +123,8 @@ const styles = StyleSheet.create({
         color: `${colors.red}`,
     },
     placeholderWrapper: {
-        position: "relative",
+        position: "absolute",
+        width: 200,
     },
     input: {
         width: "100%",

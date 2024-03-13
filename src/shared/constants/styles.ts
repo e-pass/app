@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+
 import { colors } from "@/shared/constants/colors";
 
 // headers
@@ -17,28 +18,28 @@ export const H2Mobile = styled.Text`
 `;
 
 export const H3Mobile = styled.Text`
-    font-family: NunitoSans-Bold;
+    font-family: "NunitoSans-Bold";
     font-size: 17px;
     font-weight: 600;
     line-height: 24px;
 `;
 
 export const B1Mobile = styled.Text`
-    font-family: NunitoSans;
+    font-family: NunitoSans-ExtraLight;
     font-size: 17px;
     font-weight: 400;
     line-height: 22px;
 `;
 
 export const B2Mobile = styled.Text`
-    font-family: NunitoSans;
+    font-family: NunitoSans-ExtraLight;
     font-size: 15px;
     font-weight: 500;
     line-height: 16px;
 `;
 
 export const B3Mobile = styled.Text`
-    font-family: NunitoSans;
+    font-family: NunitoSans-ExtraLight;
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
@@ -52,14 +53,14 @@ export const B3MobileBold = styled.Text`
 `;
 
 export const B4Mobile = styled.Text`
-    font-family: NunitoSans;
+    font-family: NunitoSans-ExtraLight;
     font-size: 10px;
     font-weight: 400;
     line-height: 14px;
 `;
 
 export const TextLink = styled.Text`
-    font-family: NunitoSans-Semibold;
+    font-family: NunitoSans-SemiBold;
     font-size: 15px;
     font-weight: 500;
     line-height: 20px;

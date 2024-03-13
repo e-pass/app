@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Logo } from "@/assets/icons";
-import { InnerContainer, PrimaryButton, PrimaryInput } from "@/shared/ui";
 import { B2Mobile, H1Mobile, TextLink } from "src/shared/constants";
 import styled from "styled-components/native";
+
+import { Logo } from "@/assets/icons";
+import { InnerContainer, PrimaryButton, PrimaryInput } from "@/shared/ui";
 
 const LoginForm = ({ navigation }: { navigation: any }) => {
     const [phone, setPhone] = useState<string>();
@@ -13,12 +14,18 @@ const LoginForm = ({ navigation }: { navigation: any }) => {
             <H1Mobile style={{ marginBottom: 12 }}>Вход в систему</H1Mobile>
             <ExtraView>
                 <B2Mobile>Нет аккаунта?</B2Mobile>
-                <TextLink onPress={() => navigation.navigate("Registration")}>Зарегистрироваться</TextLink>
+                <TextLink onPress={() => navigation.navigate("Registration")}>
+                    Зарегистрироваться
+                </TextLink>
             </ExtraView>
-            <PrimaryInput changedState={(value: string) => {
-                setPhone(value);
-            }} textContentType="telephoneNumber" placeholder="Номер телефона" />
-            <PrimaryButton label={"Войти"} />
+            <PrimaryInput
+                changedState={(value: string) => {
+                    setPhone(value);
+                }}
+                textContentType='telephoneNumber'
+                placeholder='Номер телефона'
+            />
+            <PrimaryButton label='Войти' />
         </InnerContainer>
     );
 };

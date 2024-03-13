@@ -1,9 +1,12 @@
 {
-  "extends": "expo/tsconfig.base",
+  "extends": ["expo/tsconfig.base"],
+  "include": ["./src", "*.ts", "*.tsx", ".eslintrc.js"],
   "compilerOptions": {
     "strict": true,
     "target": "ESNext",
     "baseUrl": ".",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
     "paths": {
       "@/": ["./*"],
       "@/assets/*": ["assets/*"],

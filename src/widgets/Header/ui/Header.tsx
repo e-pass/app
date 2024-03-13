@@ -1,7 +1,8 @@
 import React, { type FC, type ReactNode, useMemo } from "react";
+import { Image, StyleSheet, TouchableOpacity as Touch, View } from "react-native";
 import styled from "styled-components/native";
+
 import { Back, Close, Edit, ThreeDots } from "@/assets/icons";
-import { View, StyleSheet, TouchableOpacity as Touch, Image } from "react-native";
 
 interface HeaderProps extends React.PropsWithChildren {
     headerLayout?: HeaderLayout;
@@ -23,36 +24,41 @@ const Header: FC<HeaderProps> = ({
     const rightIco = useMemo(
         () =>
             new Map([
-                ["close", <Close width={32} height={32} key="close" />],
-                ["edit", <Edit width={32} height={32} key="edit" />],
-                ["dots", <ThreeDots width={32} height={32} key="dots" />],
+                ["close", <Close width={32} height={32} key='close' />],
+                ["edit", <Edit width={32} height={32} key='edit' />],
+                ["dots", <ThreeDots width={32} height={32} key='dots' />],
                 [
-                "avatar",
-                <Image
-                    style={styles.avatar}
-                    source={require("@/assets/images/user-avatar.jpg")}
-                    key="avatar"
-                />,
+                    "avatar",
+                    <Image
+                        style={styles.avatar}
+                        source={require("@/assets/images/user-avatar.jpg")}
+                        key='avatar'
+                    />,
                 ],
-            ]), []
+            ]),
+        [],
     );
 
     const getIconLayout = (type: "left" | "right", value: boolean): ReactNode => {
         const layout = new Map([
-            ["left",
-            <Touch key="left" onPress={() => {
-                if (navigation !== undefined) navigation.goBack();
-            }}>
-                <Back width={32} height={32} />
-            </Touch>,
+            [
+                "left",
+                <Touch
+                    key='left'
+                    onPress={() => {
+                        if (navigation !== undefined) navigation.goBack();
+                    }}
+                >
+                    <Back width={32} height={32} />
+                </Touch>,
             ],
             [
-            "right",
-            <Touch style={[styles.iconWrapper]} key="right">
-                {rightIco.get(rightIcon as string)}
-            </Touch>,
+                "right",
+                <Touch style={[styles.iconWrapper]} key='right'>
+                    {rightIco.get(rightIcon as string)}
+                </Touch>,
             ],
-            ["empty", <View style={[styles.iconWrapper, { opacity: 0 }]} key="empty" />],
+            ["empty", <View style={[styles.iconWrapper, { opacity: 0 }]} key='empty' />],
         ]);
 
         if (value) return layout.get(type);

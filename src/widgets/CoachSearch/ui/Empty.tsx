@@ -13,23 +13,21 @@ const Circle = styled.View`
     width: 62px;
     height: 62px;
     border-radius: 50%;
-    background: #D9D9D9;
+    background: #d9d9d9;
 `;
 
 const InfoText = styled.Text`
     font-size: 17px;
     font-weight: 600;
     line-height: 24px;
-    color: #726F6E;
+    color: #726f6e;
 `;
 
-const Empty: FC = () => {
-    return (
-        <Body>
-            <Circle />
-            <InfoText>Тренеров пока нет</InfoText>
-        </Body>
-    );
-};
+const Empty: FC = () => (
+    <Body>
+        <Circle />
+        <InfoText>Тренеров пока нет</InfoText>
+    </Body>
+);
 
 export default Empty;

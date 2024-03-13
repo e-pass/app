@@ -1,7 +1,7 @@
-import React, { type FC } from "react";
-import styled from "styled-components/native";
-import { colors } from "src/shared/constants";
 import { useFonts } from "expo-font";
+import React, { type FC } from "react";
+import { colors } from "src/shared/constants";
+import styled from "styled-components/native";
 
 import ThreeDots from "@/assets/icons/three-dots.svg";
 
@@ -60,28 +60,23 @@ const GroupIcon = styled.Image`
     width: 22px;
     height: 24px;
     object-fit: contain;
-`;1
+`;
+1;
 
-const CoachCard: FC = () => {
-    const [fontsLoaded] = useFonts({
-        "NunitoSans-Bold": require("@/assets/fonts/NunitoSans-Bold.ttf"),
-    });
-
-    return (
-        <Body>
-            <InfoContainer>
-                <NameContainer>
-                    <NameIcon source={require("@/assets/icons/person.png")} />
-                    <Name>Константин Константинополький</Name>
-                </NameContainer>
-                <GroupContainer>
-                    <GroupIcon source={require("@/assets/icons/people.png")} />
-                    <Group>1 группа</Group>
-                </GroupContainer>
-            </InfoContainer>
-            <ThreeDots width={24} height={24} style={{ marginTop: 10, flexBasis: 24 }} />
-        </Body>
-    );
-};
+const CoachCard: FC = () => (
+    <Body>
+        <InfoContainer>
+            <NameContainer>
+                <NameIcon source={require("@/assets/icons/person.png")} />
+                <Name>Константин Константинополький</Name>
+            </NameContainer>
+            <GroupContainer>
+                <GroupIcon source={require("@/assets/icons/people.png")} />
+                <Group>1 группа</Group>
+            </GroupContainer>
+        </InfoContainer>
+        <ThreeDots width={24} height={24} style={{ marginTop: 10, flexBasis: 24 }} />
+    </Body>
+);
 
 export default CoachCard;
