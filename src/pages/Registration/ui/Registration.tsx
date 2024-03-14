@@ -3,12 +3,13 @@ import { KeyboardAvoidingView, Pressable, ScrollView, StatusBar } from "react-na
 import styled from "styled-components/native";
 
 import { Logo } from "@/assets/icons";
-import { registrationPost } from "@/features/api";
 import { type IRegistrationFormData } from "@/pages/Registration";
 import { B2Mobile, colors, H1Mobile, TextLink } from "@/shared/constants";
 import { Container, PrimaryButton, PrimaryInput } from "@/shared/ui";
 import Checkbox from "@/shared/ui/Checkbox";
 import { Header } from "@/widgets/Header";
+
+import { useAuth } from "../../../app/AuthContext";
 
 const Subtitle = styled.View`
     display: flex;
@@ -22,8 +23,8 @@ const Form = styled.View`
     margin-top: 28px;
 `;
 
-const RegistrationForm = ({ navigation }: { navigation: any }) => {
-    const [isTrainer, setIsTrainer] = useState<boolean>(false);
+const Registration = ({ navigation }: { navigation: any }) => {
+    const { onRegister, onSendCode } = useAuth();
     const [isAgreePrivacy, setIsAgreePrivacy] = useState<boolean>(false);
 
     const [disabledButton, setDisabledButton] = useState<boolean>(true);
@@ -32,9 +33,10 @@ const RegistrationForm = ({ navigation }: { navigation: any }) => {
         firstname: "",
         lastname: "",
         phoneNumber: "",
+        isTrainer: false,
     });
 
-    const handleChangeFormData = (key: keyof IRegistrationFormData, value: string) => {
+    const handleChangeFormData = (key: keyof IRegistrationFormData, value: string | boolean) => {
         setFormData((prevState) => ({
             ...prevState,
             [key]: value,
@@ -49,17 +51,21 @@ const RegistrationForm = ({ navigation }: { navigation: any }) => {
     }, [formData, isAgreePrivacy]);
 
     const sendForm = useCallback(async () => {
-        const response = await registrationPost({ ...formData, isTrainer });
+        if (!onRegister || !onSendCode) return;
 
-        if (response === undefined) {
+        const response = await onRegister(formData);
+
+        if (response.error) {
             alert("Error");
             return;
         }
 
+        const responseSend = await onSendCode(formData.phoneNumber);
+
         navigation.navigate("VerificationCode", {
             phoneNumber: formData.phoneNumber,
         });
-    }, [formData, isTrainer]);
+    }, [formData]);
 
     return (
         <Container>
@@ -103,9 +109,9 @@ const RegistrationForm = ({ navigation }: { navigation: any }) => {
                         />
 
                         <Checkbox
-                            isChecked={isTrainer}
-                            changeChecked={() => {
-                                setIsTrainer((prevState) => !prevState);
+                            isChecked={formData.isTrainer}
+                            changeChecked={(value) => {
+                                handleChangeFormData("isTrainer", value);
                             }}
                             text='Я — тренер'
                         />
@@ -129,4 +135,4 @@ const RegistrationForm = ({ navigation }: { navigation: any }) => {
     );
 };
 
-export default RegistrationForm;
+export default Registration;

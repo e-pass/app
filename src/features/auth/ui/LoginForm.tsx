@@ -5,8 +5,28 @@ import styled from "styled-components/native";
 import { Logo } from "@/assets/icons";
 import { InnerContainer, PrimaryButton, PrimaryInput } from "@/shared/ui";
 
+import { useAuth } from "../../../app/AuthContext";
+
 const LoginForm = ({ navigation }: { navigation: any }) => {
+    const { onSendCode } = useAuth();
+
     const [phone, setPhone] = useState<string>();
+    const [isError, setIsError] = useState<boolean>(false);
+
+    const send = async () => {
+        if (!phone || !onSendCode) return;
+
+        const response = await onSendCode(phone);
+
+        if (response.error) {
+            setIsError(true);
+            return;
+        }
+
+        navigation.navigate("VerificationCode", {
+            phoneNumber: phone,
+        });
+    };
 
     return (
         <InnerContainer>
@@ -14,7 +34,7 @@ const LoginForm = ({ navigation }: { navigation: any }) => {
             <H1Mobile style={{ marginBottom: 12 }}>Вход в систему</H1Mobile>
             <ExtraView>
                 <B2Mobile>Нет аккаунта?</B2Mobile>
-                <TextLink onPress={() => navigation.navigate("RegistrationForm")}>
+                <TextLink onPress={() => navigation.navigate("Registration")}>
                     Зарегистрироваться
                 </TextLink>
             </ExtraView>
@@ -22,17 +42,12 @@ const LoginForm = ({ navigation }: { navigation: any }) => {
                 changedState={(value: string) => {
                     setPhone(value);
                 }}
+                errorMessage='Аккаунта с таким номером не существует!'
+                isError={isError}
                 textContentType='telephoneNumber'
                 placeholder='Номер телефона'
             />
-            <PrimaryButton
-                onPress={() =>
-                    navigation.navigate("VerificationCode", {
-                        phoneNumber: phone,
-                    })
-                }
-                label='Войти'
-            />
+            <PrimaryButton onPress={send} label='Войти' />
         </InnerContainer>
     );
 };

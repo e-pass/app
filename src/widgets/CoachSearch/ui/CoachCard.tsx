@@ -33,7 +33,6 @@ const Name = styled.Text`
     font-size: 17px;
     font-weight: 600;
     line-height: 22px;
-    word-break: break-word;
     width: 80%;
 `;
 

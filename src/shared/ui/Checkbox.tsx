@@ -5,7 +5,7 @@ import { B2Mobile } from "@/shared/constants";
 
 interface Props {
     isChecked: boolean;
-    changeChecked: () => void;
+    changeChecked: (state: boolean) => void;
     text: string;
 }
 
@@ -27,7 +27,7 @@ const Box = styled.View`
 
 const Checkbox = ({ isChecked, changeChecked, text }: Props) => {
     return (
-        <Element onPress={changeChecked}>
+        <Element onPress={() => changeChecked(!isChecked)}>
             <Box style={{ backgroundColor: isChecked ? "#ED6337" : "#E9E5E7" }}>
                 {isChecked && <Checked width={16} height={16} />}
             </Box>

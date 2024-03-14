@@ -68,6 +68,14 @@ module.exports = {
         "react/require-default-props": "off",
         "global-require": "off",
         "import/no-extraneous-dependencies": "off",
+        camelcase: "off",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                selector: "variableLike",
+                format: ["snake_case", "camelCase", "PascalCase", "UPPER_CASE"],
+            },
+        ],
         indent: "off",
     },
 };

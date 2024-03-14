@@ -63,7 +63,7 @@ export const TextLink = styled.Text`
     font-family: NunitoSans-SemiBold;
     font-size: 15px;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 15px;
     text-decoration: underline;
     color: ${colors.purple};
 `;

@@ -1,13 +1,14 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Animated, Pressable, ScrollView, StatusBar, StyleSheet, Vibration } from "react-native";
+import { Animated, Pressable, ScrollView, StatusBar, StyleSheet } from "react-native";
 import styled from "styled-components/native";
 
 import { Logo } from "@/assets/icons";
-import { sendCodePost, verifyCodePost } from "@/features/api";
 import { type IDigit } from "@/pages/Registration/models/IDigit";
 import { B2Mobile, B3Mobile, colors, H1Mobile } from "@/shared/constants";
 import { Container } from "@/shared/ui";
 import { Header } from "@/widgets/Header";
+
+import { useAuth } from "../../../app/AuthContext";
 
 const CodeContainer = styled.View`
     display: grid;
@@ -87,6 +88,7 @@ const Digit = ({
 const TIMER_SECONDS = 60;
 
 const VerificationCode = ({ route, navigation }: { route: any; navigation: any }) => {
+    const { onSendCode, onVerifyCode } = useAuth();
     const { phoneNumber } = route.params;
 
     const [countdown, setCountdown] = useState<number>(TIMER_SECONDS);
@@ -94,12 +96,12 @@ const VerificationCode = ({ route, navigation }: { route: any; navigation: any }
     const [value, setValue] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
 
-    const sendCode = async () => {
-        if (!phoneNumber) return;
+    const send = async () => {
+        if (!phoneNumber || !onSendCode) return;
 
-        const response = await sendCodePost(phoneNumber);
+        const response = await onSendCode(phoneNumber);
 
-        if (!response) {
+        if (response.error) {
             alert("Error");
             return;
         }
@@ -115,14 +117,15 @@ const VerificationCode = ({ route, navigation }: { route: any; navigation: any }
     };
 
     const checkCode = async () => {
-        const response = await verifyCodePost(phoneNumber, +value);
+        if (!onVerifyCode) return;
+        const response = await onVerifyCode(phoneNumber, +value);
 
-        if (!response) {
+        if (response.error) {
             setIsError(true);
             return;
         }
 
-        navigation.replace("Coaches");
+        navigation.replace("Main");
     };
 
     const digits: IDigit[] = useMemo(() => {
@@ -147,7 +150,16 @@ const VerificationCode = ({ route, navigation }: { route: any; navigation: any }
     }, [value]);
 
     useEffect(() => {
-        sendCode();
+        const interval = setInterval(() => {
+            setCountdown((prevState) => {
+                if (prevState === 0) clearInterval(interval);
+                return prevState - 1;
+            });
+        }, 1000);
+
+        return () => {
+            clearInterval(interval);
+        };
     }, []);
 
     return (
@@ -169,6 +181,7 @@ const VerificationCode = ({ route, navigation }: { route: any; navigation: any }
 
                 <CodeContainer>
                     <TransparentInput
+                        autoFocus
                         onFocus={() => {
                             setIsInputFocus(true);
                         }}
@@ -198,7 +211,7 @@ const VerificationCode = ({ route, navigation }: { route: any; navigation: any }
                 )}
 
                 {countdown < 0 ? (
-                    <Pressable onPress={sendCode}>
+                    <Pressable onPress={send}>
                         <B2Mobile style={{ marginTop: 24 }}>
                             Не пришёл код? Запросить ещё раз.
                         </B2Mobile>

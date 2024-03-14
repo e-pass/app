@@ -1,8 +1,9 @@
-import styled from "styled-components/native";
-import { colors } from "@/shared/constants";
 import { type ReactElement, useEffect, useRef, useState } from "react";
 import { Animated, StyleSheet, TextInput, type TextInputProps } from "react-native";
 import MaskInput from "react-native-mask-input";
+import styled from "styled-components/native";
+
+import { B2Mobile, B3Mobile, colors } from "@/shared/constants";
 
 const Body = styled.View`
     height: 66px;
@@ -10,12 +11,12 @@ const Body = styled.View`
     flex-direction: row;
     align-items: center;
     position: relative;
-    background-color: #F5F1F3;
+    background-color: #f5f1f3;
     border-radius: 16px;
-    border-color: #F5F1F3;
+    border-color: #f5f1f3;
     border-width: 1px;
     border-style: solid;
-    color: #A39FA1;
+    color: #a39fa1;
 `;
 
 const Attention = styled.Image`
@@ -36,15 +37,19 @@ const Placeholder = styled.Text`
 
 interface InputProps extends TextInputProps {
     isError?: boolean;
+    errorMessage?: string;
     placeholder: string;
     changedState?: (value: string) => void;
 }
 
 /** Primary Input | Accepts isError (true/false), and other props valid to TextInput  */
 export const PrimaryInput = ({
-                                 isError = false, placeholder, changedState = () => {
-    }, ...props
-                             }: InputProps): ReactElement => {
+    isError = false,
+    errorMessage = "",
+    placeholder,
+    changedState = () => {},
+    ...props
+}: InputProps): ReactElement => {
     const translateY = useRef(new Animated.Value(-8)).current;
     const translateX = useRef(new Animated.Value(0)).current;
     const scale = useRef(new Animated.Value(1)).current;
@@ -54,7 +59,7 @@ export const PrimaryInput = ({
     const [isFocused, setIsFocused] = useState<boolean>(false);
 
     const changeIsFocused = (isFocus: boolean) => {
-        setIsFocused((value !== "") ? true : isFocus);
+        setIsFocused(value !== "" ? true : isFocus);
     };
 
     useEffect(() => {
@@ -80,40 +85,90 @@ export const PrimaryInput = ({
     }, [value]);
 
     return (
-        <Body>
-            <Animated.View
-                style={[styles.placeholderWrapper, {
-                    transform: [{ translateY }, { scale }, { translateX }],
-                }]}>
-                <Placeholder>{placeholder}</Placeholder>
-            </Animated.View>
+        <>
+            <Body>
+                <Animated.View
+                    style={[
+                        styles.placeholderWrapper,
+                        {
+                            transform: [{ translateY }, { scale }, { translateX }],
+                        },
+                    ]}
+                >
+                    <Placeholder>{placeholder}</Placeholder>
+                </Animated.View>
 
-            {props.textContentType === "telephoneNumber" ? (
-                <MaskInput numberOfLines={1} selectionColor="#8638E5"
-                           style={[styles.input, isError && styles.error, !isFocused && { opacity: 0 }]}
-                           mask={["+", /\d/, " ", "(", /\d/, /\d/, /\d/, ")", " ", /\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/]}
-                           value={value} onChangeText={(masked) => setValue(masked)} onFocus={() => {
-                    changeIsFocused(true);
-                }} onBlur={() => {
-                    changeIsFocused(false);
-                }} {...props} />
-            ) : (
-                <TextInput numberOfLines={1} selectionColor="#8638E5" style={[styles.input, isError && styles.error]}
-                           value={value} onChangeText={setValue}
-                           onFocus={() => {
-                               changeIsFocused(true);
-                           }} onBlur={() => {
-                    changeIsFocused(false);
-                }} {...props} />
+                {props.textContentType === "telephoneNumber" ? (
+                    <MaskInput
+                        numberOfLines={1}
+                        selectionColor='#8638E5'
+                        style={[
+                            styles.input,
+                            isError && styles.error,
+                            !isFocused && { opacity: 0 },
+                        ]}
+                        mask={[
+                            "+",
+                            /\d/,
+                            " ",
+                            "(",
+                            /\d/,
+                            /\d/,
+                            /\d/,
+                            ")",
+                            " ",
+                            /\d/,
+                            /\d/,
+                            /\d/,
+                            "-",
+                            /\d/,
+                            /\d/,
+                            "-",
+                            /\d/,
+                            /\d/,
+                            /\d/,
+                            /\d/,
+                        ]}
+                        value={value}
+                        onChangeText={(masked) => setValue(masked)}
+                        onFocus={() => {
+                            changeIsFocused(true);
+                        }}
+                        onBlur={() => {
+                            changeIsFocused(false);
+                        }}
+                        {...props}
+                    />
+                ) : (
+                    <TextInput
+                        numberOfLines={1}
+                        selectionColor='#8638E5'
+                        style={[styles.input, isError && styles.error]}
+                        value={value}
+                        onChangeText={setValue}
+                        onFocus={() => {
+                            changeIsFocused(true);
+                        }}
+                        onBlur={() => {
+                            changeIsFocused(false);
+                        }}
+                        {...props}
+                    />
+                )}
+
+                <Attention
+                    source={{
+                        uri: "./attention.png",
+                    }}
+                />
+            </Body>
+
+            {isError && (
+                <B3Mobile style={{ color: colors.darkRed, marginTop: 8, marginHorizontal: 16 }}>
+                    {errorMessage}
+                </B3Mobile>
             )}
-
-
-            <Attention
-                source={{
-                    uri: "./attention.png",
-                }}
-            />
-        </Body>
+        </>
     );
 };
 
