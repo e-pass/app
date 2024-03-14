@@ -13,57 +13,60 @@ export const H1Mobile = styled.Text`
 export const H2Mobile = styled.Text`
     font-family: NunitoSans-Bold;
     font-size: 21px;
-    font-weight: 600;
     line-height: 28px;
 `;
 
 export const H3Mobile = styled.Text`
-    font-family: "NunitoSans-Bold";
+    font-family: NunitoSans-SemiBold;
     font-size: 17px;
-    font-weight: 600;
     line-height: 24px;
 `;
 
 export const B1Mobile = styled.Text`
-    font-family: NunitoSans-ExtraLight;
+    font-family: NunitoSans;
     font-size: 17px;
-    font-weight: 400;
     line-height: 22px;
 `;
 
 export const B2Mobile = styled.Text`
-    font-family: NunitoSans-ExtraLight;
+    font-family: NunitoSans;
     font-size: 15px;
-    font-weight: 500;
+    line-height: 16px;
+`;
+
+export const B2MobileBold = styled.Text`
+    font-family: NunitoSans-Bold;
+    font-size: 15px;
     line-height: 16px;
 `;
 
 export const B3Mobile = styled.Text`
-    font-family: NunitoSans-ExtraLight;
+    font-family: NunitoSans;
     font-size: 13px;
-    font-weight: 400;
     line-height: 16px;
 `;
 
 export const B3MobileBold = styled.Text`
     font-family: NunitoSans-Bold;
     font-size: 13px;
-    font-weight: 600;
     line-height: 16px;
 `;
 
 export const B4Mobile = styled.Text`
-    font-family: NunitoSans-ExtraLight;
+    font-family: NunitoSans;
     font-size: 10px;
-    font-weight: 400;
     line-height: 14px;
 `;
 
 export const TextLink = styled.Text`
     font-family: NunitoSans-SemiBold;
     font-size: 15px;
-    font-weight: 500;
-    line-height: 15px;
-    text-decoration: underline;
+    line-height: 16px;
     color: ${colors.purple};
+`;
+
+export const Subtitle = styled.View`
+    flex-direction: row;
+    align-items: center;
+    margin-top: 12px;
 `;
