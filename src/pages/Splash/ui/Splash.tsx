@@ -1,7 +1,7 @@
 import { StatusBar } from "react-native";
 import styled from "styled-components/native";
 
-import Logo from "@/assets/icons/logo.svg";
+import Logo from "@/shared/assets/icons/logo.svg";
 
 const Screen = styled.SafeAreaView`
     justify-content: center;

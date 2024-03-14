@@ -1,6 +1,8 @@
 {
   "expo": {
     "name": "E-Pass",
+    "backgroundColor": "#FBFEFD",
+    "primaryColor": "#211E1F",
     "slug": "E-Pass",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +11,7 @@
     "splash": {
       "image": "./assets/splash.jpeg",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FBFEFD"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -23,7 +25,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#FBFEFD"
       }
     },
     "web": {
@@ -34,20 +36,9 @@
         "expo-font",
         {
           "fonts": [
-            "./assets/fonts/Inter/Inter.ttf",
-            "./assets/fonts/Navigo/Navigo-Medium.ttf",
-            "./assets/fonts/NunitoSans/NunitoSans.ttf",
-            "./assets/fonts/NunitoSans/NunitoSans-Bold.ttf",
             "./assets/fonts/NunitoSans/NunitoSans-Regular.ttf",
-            "./assets/fonts/NunitoSans/NunitoSans-SemiBold.ttf",
-            "./assets/fonts/Roboto/Roboto-Medium.ttf",
-            "./assets/fonts/SF/SF-Pro-Display-Bold.otf",
-            "./assets/fonts/SF/SF-Pro-Display-Regular.otf",
-            "./assets/fonts/SF/SF-Pro-Display-Semibold.otf",
-            "./assets/fonts/SF/SFProText-Bold.ttf",
-            "./assets/fonts/SF/SFProText-Medium.ttf",
-            "./assets/fonts/SF/SFProText-Regular.ttf",
-            "./assets/fonts/SF/SFProText-Semibold.ttf"
+            "./assets/fonts/NunitoSans/NunitoSans-Bold.ttf",
+            "./assets/fonts/NunitoSans/NunitoSans-SemiBold.ttf"
           ]
         }
       ],

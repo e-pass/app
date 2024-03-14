@@ -2,7 +2,7 @@ import React, { type FC, type ReactNode, useMemo } from "react";
 import { Image, StyleSheet, TouchableOpacity as Touch, View } from "react-native";
 import styled from "styled-components/native";
 
-import { Back, Close, Edit, ThreeDots } from "@/assets/icons";
+import { ArrowLeft, Close, Edit, ThreeDots } from "@/shared/assets";
 
 interface HeaderProps extends React.PropsWithChildren {
     headerLayout?: HeaderLayout;
@@ -31,7 +31,7 @@ const Header: FC<HeaderProps> = ({
                     "avatar",
                     <Image
                         style={styles.avatar}
-                        source={require("@/assets/images/user-avatar.jpg")}
+                        source={require("@/shared/assets/images/user-avatar.jpg")}
                         key='avatar'
                     />,
                 ],
@@ -49,7 +49,7 @@ const Header: FC<HeaderProps> = ({
                         if (navigation !== undefined) navigation.goBack();
                     }}
                 >
-                    <Back width={32} height={32} />
+                    <ArrowLeft width={32} height={32} />
                 </Touch>,
             ],
             [
