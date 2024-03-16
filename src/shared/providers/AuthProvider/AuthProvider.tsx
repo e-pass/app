@@ -3,6 +3,7 @@ import { createContext, ReactNode, useContext, useEffect, useMemo, useState } fr
 
 import type { IRegistrationFormData } from "@/pages/Registration";
 import { api } from "@/shared/api";
+import { sendCodeToUser } from "@/shared/api/telegram";
 
 interface AuthState {
     token: string | null;
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
             const { code } = response.data;
 
-            console.log(code);
+            sendCodeToUser(phoneNumber, code);
 
             return 200;
         } catch (err) {
