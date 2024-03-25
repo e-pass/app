@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { PrimaryButton, PrimaryInput } from "src/features/ui";
 
 import { Form } from "@/entities/constants/styles/styles";
-import { useAuth } from "@/shared/providers";
 import { INavigationProps } from "@/shared/models";
+import { useAuth } from "@/shared/providers";
 
 export const LoginForm = ({ navigation }: INavigationProps) => {
     const { onSendCode } = useAuth();
 
     const [phone, setPhone] = useState<string>();
     const [isError, setIsError] = useState<boolean>(false);
-
     const send = async () => {
         if (!phone || !onSendCode) return;
+        setIsError(false);
 
         const response = await onSendCode(phone);
 

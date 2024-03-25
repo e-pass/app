@@ -60,7 +60,7 @@ export const B4Mobile = styled.Text`
 export const TextLink = styled.Text`
     font-family: ${fonts.NunitoSans_600};
     font-size: 15px;
-    line-height: 15px;
+    line-height: 16px;
     height: 16px;
     color: ${colors.action};
     text-decoration: underline;

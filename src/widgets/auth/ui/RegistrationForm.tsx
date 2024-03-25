@@ -39,17 +39,11 @@ export const RegistrationForm = ({ navigation }: INavigationProps) => {
 
         const response = await onRegister(formData);
 
-        if (response.error) {
-            alert("Error");
-            return;
-        }
+        if (response.error) return;
 
         const responseCode = await onSendCode(formData.phoneNumber);
 
-        if (responseCode.error) {
-            alert("Error");
-            return;
-        }
+        if (responseCode.error) return;
 
         navigation.navigate("VerificationCode", {
             phoneNumber: formData.phoneNumber,

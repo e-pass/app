@@ -1,5 +1,6 @@
 import * as SecureStore from "expo-secure-store";
 import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
+import { Alert } from "react-native";
 
 import type { IRegistrationFormData } from "@/pages/Registration";
 import { api } from "@/shared/api";
@@ -61,6 +62,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             });
             return 201;
         } catch (err) {
+            Alert.alert((err as any).response.data.msg);
             return { error: true, msg: (err as any).response.data.msg };
         }
     };
@@ -77,6 +79,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
             return 200;
         } catch (err) {
+            Alert.alert((err as any).response.data.msg);
             return { error: true, msg: (err as any).response.data.msg };
         }
     };
@@ -101,6 +104,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
             return response.data;
         } catch (err) {
+            Alert.alert((err as any).response.data.msg);
             return { error: true, msg: (err as any).response.data.msg };
         }
     };
@@ -115,6 +119,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 authenticated: false,
             });
         } catch (err) {
+            Alert.alert((err as any).response.data.msg);
             return { error: true, msg: (err as any).response.data.msg };
         }
     };
